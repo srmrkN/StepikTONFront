@@ -29,8 +29,9 @@ export function useMainContract() {
             if (!mainContract) return;
             setContractData(null);
             const contractData = await mainContract.getData();
-            // @ts-ignore
-            const { contractBalance } = await mainContract.getBalance();
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
+            const {contractBalance} = await mainContract.getBalance();
             setContractData({
                 counter_value: contractData.number,
                 recent_sender: contractData.recent_sender,
@@ -38,7 +39,7 @@ export function useMainContract() {
             });
 
             // ! was missing
-            setBalance(contractBalance);
+            setBalance(contractBalance[0]);
         }
 
         getValue();
