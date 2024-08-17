@@ -2,12 +2,15 @@ import "./App.css";
 import { TonConnectButton } from "@tonconnect/ui-react";
 import { useMainContract } from "./hooks/useMainContract";
 
+
+//kQAs-O14ll1CxqiR8JxFCgZtCCdOeaV0kR2sdaMQqj5Bn_A5
+
 function App() {
     const {
         contract_address,
         counter_value,
-        recent_sender,
-        owner_address,
+        //recent_sender,
+        //owner_address,
         contract_balance,
     } = useMainContract();
     return (
@@ -31,5 +34,7 @@ function App() {
         </div>
     );
 }
+
+
 
 export default App;

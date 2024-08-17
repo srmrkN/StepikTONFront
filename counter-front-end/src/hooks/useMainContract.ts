@@ -17,8 +17,7 @@ export function useMainContract() {
 
     const mainContract = useAsyncInitialize(async () => {
         if (!client) return;
-        const parsedAddress = Address.parse("ADDRESS_OF_YOUR_SUPER_MEGA_CONTRACT");
-        console.log("file: useMainContract.ts:22 ~ mainContract ~ parsedAddress:", parsedAddress.toString());
+        const parsedAddress = Address.parse("kQAs-O14ll1CxqiR8JxFCgZtCCdOeaV0kR2sdaMQqj5Bn_A5");
 
 
         const contract = new MainContract(parsedAddress);
@@ -30,7 +29,8 @@ export function useMainContract() {
             if (!mainContract) return;
             setContractData(null);
             const contractData = await mainContract.getData();
-            const contractBalance = await mainContract.getBalance();
+            // @ts-ignore
+            const { contractBalance } = await mainContract.getBalance();
             setContractData({
                 counter_value: contractData.number,
                 recent_sender: contractData.recent_sender,
