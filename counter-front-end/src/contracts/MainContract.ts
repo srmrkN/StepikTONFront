@@ -64,9 +64,9 @@ export class MainContract implements Contract {
 
     async getBalance(provider: ContractProvider){
         const { stack } = await provider.get("balance", []);
-        return {
-            number: stack.readNumber(),
-        }
+
+        return stack.readNumber()
+
     };
     async sendDeposit(provider: ContractProvider, sender: Sender, value: bigint){
         const msg_body = beginCell()
